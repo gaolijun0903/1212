@@ -17,7 +17,7 @@
 		li { list-style-type:none;}
 		input, input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none; color:slateblue; border:none; outline: none; background:transparent; width: 100%;}
 		body{background-color: #1a0059;}
-		.wrapper{ width: 10.0rem;min-height: 100%; background-image: url(http://i1.yongche.name/media/g2/M01/19/3C/rBEBJVoie5uIT_UuAAAA5NyfQasAAKGFgP__uEAAAEf128.png);}
+		.wrapper{ width: 10.0rem;min-height: 100%; background-image: url(//i1.Yongche.name/media/g2/M01/19/3C/rBEBJVoie5uIT_UuAAAA5NyfQasAAKGFgP__uEAAAEf128.png);}
 		.head{
 			width: 10.0rem;
 			height: 11.16rem;
@@ -157,20 +157,20 @@
 		
 	
 		<script src="https://i3.Yongche.name/s/js/201711/vue.min.js?1478153218"></script>
-        <!--<script src="<{asset:js/jquery/jquery-1.8.3.min.js}>"></script>-->
-    		<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
-    		<script type="text/javascript" src="js/flexible.js"></script>
+        <script src="<{asset:js/jquery/jquery-1.8.3.min.js}>"></script>
+    		<!--<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+    		<script type="text/javascript" src="js/flexible.js"></script>-->
 	</head>
 	<body>
 		<div id="app">
 			<div class="wrapper">
 				<div class="head">
-					<img src="http://i3.yongche.name/media/g2/M02/1A/19/rBEBJVoiewOIbI1JAAGxt04gNIMAAKRaANpmLUAAbHP086.png" width="100%" height="100%"/>
+					<img src="//i3.Yongche.name/media/g2/M02/1A/19/rBEBJVoiewOIbI1JAAGxt04gNIMAAKRaANpmLUAAbHP086.png" width="100%" height="100%"/>
 					<div class="rule-btn" @click=showRule>规则</div>
 					<div class="order-num"  v-html="orderNums"></div>
 				</div>
 				<div class="draw">
-					<img src="http://i3.yongche.name/media/g2/M02/1A/19/rBEBP1oie5uIHnlxAAA1MCpK9egAAKRaAO1IF0AADVI145.png" width="100%" height="100%"/>
+					<img src="//i3.Yongche.name/media/g2/M02/1A/19/rBEBP1oie5uIHnlxAAA1MCpK9egAAKRaAO1IF0AADVI145.png" width="100%" height="100%"/>
 					<div>
 						<div v-show="!orderRemain" class="draw-des">
 							<div class="ok-draw">您当前有<span class="draw-num" v-html="drawNum"> 1 </span>次抽奖机会</div>
@@ -181,39 +181,39 @@
 					</div>
 					<div>
 						<div class="prize prize-top">
-							<img v-show="currentIdx!=5" src="http://i1.yongche.name/media/g2/M03/1A/19/rBEBP1oiewOIFBUKAAA7O4kAHnUAAKRagHdGygAADtT086.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===5" src="http://i1.yongche.name/media/g2/M04/1A/19/rBEBJVoiewOIRNpUAABRzkz96UoAAKRZwOUUPkAAFHm678.png" width="100%" height="100%"/>
+							<img v-show="currentIdx!=5" src="//i1.Yongche.name/media/g2/M03/1A/19/rBEBP1oiewOIFBUKAAA7O4kAHnUAAKRagHdGygAADtT086.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===5" src="//i1.Yongche.name/media/g2/M04/1A/19/rBEBJVoiewOIRNpUAABRzkz96UoAAKRZwOUUPkAAFHm678.png" width="100%" height="100%"/>
 						</div>
 						<div class="prize prize-top">
-							<img v-show="currentIdx!=4" src="http://i2.yongche.name/media/g2/M02/1A/19/rBEBJVoiewOITn9fAAA8aqWUuRYAAKRaANpXDMAADyC297.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===4" src="http://i3.yongche.name/media/g2/M04/1A/19/rBEBP1oiewOIL28oAABRTPvt19sAAKRZwOT_5UAAFFk231.png" width="100%" height="100%"/>
+							<img v-show="currentIdx!=4" src="//i2.Yongche.name/media/g2/M02/1A/19/rBEBJVoiewOITn9fAAA8aqWUuRYAAKRaANpXDMAADyC297.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===4" src="//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiewOIL28oAABRTPvt19sAAKRZwOT_5UAAFFk231.png" width="100%" height="100%"/>
 						</div>
 						<div class="prize prize-top">
-							<img v-show="currentIdx!=3" src="http://i2.yongche.name/media/g2/M01/1A/19/rBEBJVoiemCILN8LAAA82I6yj5AAAKRaQIRYxYAADzw602.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===3" src="http://i2.yongche.name/media/g2/M01/1A/19/rBEBP1oiemCIVy8LAABSO7zmJhwAAKRaQIRoAYAAFJT783.png" width="100%" height="100%"/>
+							<img v-show="currentIdx!=3" src="//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCILN8LAAA82I6yj5AAAKRaQIRYxYAADzw602.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===3" src="//i2.Yongche.name/media/g2/M01/1A/19/rBEBP1oiemCIVy8LAABSO7zmJhwAAKRaQIRoAYAAFJT783.png" width="100%" height="100%"/>
 						</div>
 						<div class="prize prize-bottom">
-							<img v-show="currentIdx!=2" src="http://i2.yongche.name/media/g2/M04/1A/19/rBEBP1oiemCIPAttAAA8cU12gvMAAKRZwLFTt0AADyJ825.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===2" src="http://i3.yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIehtQAABQqpZw4PYAAKRaQIRElQAAFDC138.png" width="100%" height="100%"/>
+							<img v-show="currentIdx!=2" src="//i2.Yongche.name/media/g2/M04/1A/19/rBEBP1oiemCIPAttAAA8cU12gvMAAKRZwLFTt0AADyJ825.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===2" src="//i3.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIehtQAABQqpZw4PYAAKRaQIRElQAAFDC138.png" width="100%" height="100%"/>
 						</div>
 						<div class="prize prize-bottom">
-							<img v-show="currentIdx!=1" src="http://i1.yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIKVCWAAA8yVZIPOoAAKRaQIQhSoAADzh044.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===1" src="http://i1.yongche.name/media/g2/M01/1A/19/rBEBP1oiemCINsRFAABQMXnC2EkAAKRaQIQwgsAAFBJ634.png" width="100%" height="100%"/>
+							<img v-show="currentIdx!=1" src="//i1.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIKVCWAAA8yVZIPOoAAKRaQIQhSoAADzh044.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===1" src="//i1.Yongche.name/media/g2/M01/1A/19/rBEBP1oiemCINsRFAABQMXnC2EkAAKRaQIQwgsAAFBJ634.png" width="100%" height="100%"/>
 						</div>
 						<div class="prize prize-bottom">
-							<img v-show="currentIdx!=0" src="http://i3.yongche.name/media/g2/M04/1A/19/rBEBP1oiemCIEf9NAAA86KEtsNMAAKRZwLFEd0AAD0A832.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===0" src="http://i2.yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIRugUAABQEhKN1VQAAKRaQIQNQAAAFAq742.png" width="100%" height="100%"/>
+							<img v-show="currentIdx!=0" src="//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiemCIEf9NAAA86KEtsNMAAKRZwLFEd0AAD0A832.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===0" src="//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIRugUAABQEhKN1VQAAKRaQIQNQAAAFAq742.png" width="100%" height="100%"/>
 						</div>
 					</div>
 					<div class="draw-btn" @click=getResult>
-						<img v-show="!isClick" src="http://i2.yongche.name/media/g2/M02/1A/19/rBEBP1oie5uIJmcJAAApULkw-U4AAKRaAO1VaUAAClo460.png"  width="100%" height="100%"/>
-						<img v-show="isClick" src="http://i1.yongche.name/media/g2/M02/1A/19/rBEBJVoie5uIBe61AAAjnJi-oLsAAKRaAO1fw0AACO0539.png"  width="100%" height="100%"/>
+						<img v-show="!isClick" src="//i2.Yongche.name/media/g2/M02/1A/19/rBEBP1oie5uIJmcJAAApULkw-U4AAKRaAO1VaUAAClo460.png"  width="100%" height="100%"/>
+						<img v-show="isClick" src="//i1.Yongche.name/media/g2/M02/1A/19/rBEBJVoie5uIBe61AAAjnJi-oLsAAKRaAO1fw0AACO0539.png"  width="100%" height="100%"/>
 					</div>
 				</div>
 				
 				<div class="lucky-list">
 					<div class="lucky-title">
-						<img src="http://i1.yongche.name/media/g2/M04/1A/19/rBEBP1oiewOIeuQhAAAo1n8SA2wAAKRZwOUot8AACju683.png" width="100%" height="100%"/>
+						<img src="//i1.Yongche.name/media/g2/M04/1A/19/rBEBP1oiewOIeuQhAAAo1n8SA2wAAKRZwOUot8AACju683.png" width="100%" height="100%"/>
 					</div>
 					<div class="lucky-bg">
 						<div class="lucky-body">
@@ -277,16 +277,14 @@ new Vue({
   el: '#app',
   data:{
     http:"//yaoyakun.market.Yongche.org",
-    //http:"//market.Yongche.com",
-  
-// 	maskBgs:["img/mask-prize0.png","img/mask-prize1.png","img/mask-prize2.png","img/mask-prize3.png","img/mask-prize4.png","img/mask-login.png","img/mask-order.png","img/mask-rule.png"],
- 	
- 	maskBgs:["http://i3.yongche.name/media/g2/M02/1A/19/rBEBP1oiePSIRXpEAABfUxlAWiMAAKRaALHmTUAAF9r754.png","http://i2.yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIRd23AABc3EhAE3MAAKRZwKbAqAAAFz0095.png","http://i2.yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIDCxfAABfeA4SNmAAAKRaQHSTr4AAF-Q383.png","http://i2.yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIEphcAAB3Myr6mTMAAKRaQHSrk4AAHdL638.png","http://i3.yongche.name/media/g2/M02/1A/19/rBEBP1oiePSIGHTEAAB7Y68mDz8AAKRaALH-KAAAHt7477.png","http://i2.yongche.name/media/g2/M01/1A/19/rBEBJVoiePSICfGCAABWXRbGPZYAAKRaQHRmmkAAFZ1472.png","http://i1.yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIA11WAABdyPvrzIYAAKRaQHR8N4AAF3g619.png","http://i3.yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIbuiNAADAiEvDveQAAKRZwKbX5QAAMCg925.png"],
-  	isLogin:1,
-  	isClick:1,
-	orderNums:8,
-	orderRemain:0,
-	drawNum:1,
+    //"//market.Yongche.com",
+  	
+ 	maskBgs:["//i3.Yongche.name/media/g2/M02/1A/19/rBEBP1oiePSIRXpEAABfUxlAWiMAAKRaALHmTUAAF9r754.png","//i2.Yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIRd23AABc3EhAE3MAAKRZwKbAqAAAFz0095.png","//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIDCxfAABfeA4SNmAAAKRaQHSTr4AAF-Q383.png","//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIEphcAAB3Myr6mTMAAKRaQHSrk4AAHdL638.png","//i3.Yongche.name/media/g2/M02/1A/19/rBEBP1oiePSIGHTEAAB7Y68mDz8AAKRaALH-KAAAHt7477.png","//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSICfGCAABWXRbGPZYAAKRaQHRmmkAAFZ1472.png","//i1.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIA11WAABdyPvrzIYAAKRaQHR8N4AAF3g619.png","//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIbuiNAADAiEvDveQAAKRZwKbX5QAAMCg925.png"],
+  	isLogin:0,
+  	isClick:0,
+	orderNums:0,
+	orderRemain:8,
+	drawNum:0,
 	currentIdx:0,
 	luckyList:[ // 获奖司机列表
             {
@@ -379,7 +377,7 @@ new Vue({
   	}
   },
   mounted: function(){
-//	this.initData();
+	this.initData();
 	setTimeout(function(){
 		stopBubble(document.getElementById("list-body"));
 	},1000)
@@ -399,7 +397,7 @@ new Vue({
 	         		vm.isLogin = data.result.isLogin;
 	          		if(vm.isLogin==0){
 	          			vm.maskType=5;
-//	           			vm.showMask=true;
+	           			vm.showMask=true;
 	          		}
 	         		vm.orderNums = data.result.count;
 	         		vm.orderRemain = data.result.count_remain;
@@ -451,16 +449,16 @@ new Vue({
 		if(this.isClick<=0){//不可以抽奖
 			return
 		}
-		//this.isClick = 0;  //已经点击过了
-		//this.drawNum = 0;  //抽奖次数0
+		this.isClick = 0;  //已经点击过了
+		this.drawNum = 0;  //抽奖次数0
 		var vm = this;
 		
-		var num =parseInt(Math.random()*5) 
-		console.log(num)
-		vm.maskType=num;
-        vm.rotatePrize(num);
+//		var num =parseInt(Math.random()*5) 
+//		console.log(num)
+//		vm.maskType=num;
+//      vm.rotatePrize(num);
              		
-		/*$.ajax({
+		$.ajax({
              type: "GET",
              url: vm.http+"/miscellaneous/Driverdoubletwelve/getResult?driver_id="+vm.driver_id,
              dataType:'jsonp',
@@ -479,7 +477,7 @@ new Vue({
               error:function(e){
                 alert(JSON.stringify(e));
               }
-        });*/
+        });
 	},
 	rotatePrize:function(idx){
 		var vm = this;
