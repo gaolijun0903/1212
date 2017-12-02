@@ -7,137 +7,242 @@
 		<meta name="screen-orientation" content="portrait"><!-- uc强制竖屏 -->
 		<meta name="x5-orientation" content="portrait"><!-- QQ强制竖屏 -->
 		<title>双十二抽奖活动</title>
+		 <script type="text/javascript">
+	        var screenWidth=window.screen.width;
+	        document.getElementsByTagName('html')[0].style.fontSize=screenWidth/10+'px';
+	    </script>
 		<style type="text/css">
 		 * { padding:0; margin:0;-webkit-tap-highlight-color: rgba(0,0,0,0); box-sizing: border-box;}
 		HTML ,body { font-size:12px;height:100%;width:100%; font-family: "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;}
 		li { list-style-type:none;}
 		input, input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none; color:slateblue; border:none; outline: none; background:transparent; width: 100%;}
-		.wrapper{ width: 100%;min-height: 100%; background-color: #5d00c7;}
-		.timer{ margin: 28px  0 0; height: 180px; position: relative;}
-		.timer .timer-title{ position: absolute; top: 12px; left: 0; width: 100%; height: 33px; line-height: 35px; font-size: 20px; font-weight: 400; color: #00fcff;}
-		.timer .timer-num{ position: absolute; top: 0; left: 53%;}
-		.timer .timer-text{ position: absolute; top: 70px; left: 0; width: 100%; text-align: center; }
-		.timer .timer-text-order{ font-size: 18px; line-height: 60px; color: #fff; }
-		.timer .timer-text-order .order-num{ font-weight: 600; color: #ffea00;}
-		.timer .timer-text-more{ font-size: 16px; color: #d4aeff; }
-		.draw{ position: relative; height: 340px; margin-top: 22px; }
-		.draw .draw-bg{ position: absolute; width: 92%; height: 340px; left: 4%; }
-		.draw .twinkle-bg{animation: twinkle 1s infinite;}
-		@keyframes twinkle {
-		  0% {
-		    opacity: 0;
-		  }
-		  100% {
-		    top: 1;
-		  }
+		body{background-color: #1a0059;}
+		.wrapper{ width: 10.0rem;min-height: 100%; background-image: url(img/bgrow.png);}
+		.head{
+			width: 10.0rem;
+			height: 11.16rem;
+			position: relative;
 		}
-		.draw .draw-box-btn{ position: relative; top: 50px; left: 33%; z-index: 10;  width: 34%; }
-		.draw .draw-box{ margin-bottom: 10px; }
-		.draw .draw-prize{ position: absolute; top: 2%; right: 8%; width: 34%; z-index: 10; animation: pop 1s infinite;}
-		@keyframes pop {
-		  0% {
-		    top: 2%;
-		  }
-		  50% {
-		    top: 1.5%;
-		  }
-		  100% {
-		    top: 2.5%;
-		  }
+		.head .rule-btn{
+			position: absolute;
+			top: 0.53333rem;
+			right: 0.346667rem;
+			width: 1.413333rem;
+			height: 0.666667rem;
+			line-height: 0.66667rem;
+			text-align: center;
+			background: #00b7ee;
+			color: #1b015c;
+			border-radius: 0.3333rem;
 		}
-		.lucky-list{ position: relative; left: 4%; margin-top: 18px; height: 500px; width: 92%; padding-top: 30px;}
-		.lucky-list .lucky-title{ position: absolute; top: 0; left: 20%; width: 60%; z-index: 10; }
-		.lucky-list .lucky-bg{ width: 98%; height: 450px; overflow-y: hidden; padding:30px 0 10px; background: #6844eb; border-radius: 10px; text-align: center; font-size: 16px; line-height: 30px; }
-		.lucky-list .lucky-bg .list-body{ overflow-y: scroll; height: 380px; }
-		.lucky-list .lucky-bg .list-body-no{line-height: 250px; color: #fff;}
-		.lucky-list .lucky-bg .list-title .cell{ color: #fff; display: inline-block; }
-		.lucky-list .lucky-bg .list-item .cell{ color: #d4aeff; height: 30px; display: inline-block; overflow: hidden; }
-		.lucky-list .lucky-bg .name{ width: 25%; }
-		.lucky-list .lucky-bg .tel{ width: 35%; }
-		.lucky-list .lucky-bg .prize{ width: 36%; }
+		.head .order-num{
+			position: absolute;
+			top: 9.29rem;
+			left: 7.85rem;
+			font-size: 0.6rem;
+			color: #c5ff47;
+			text-shadow: #4d0086 2px 2px;
+		}
+		.draw{
+			width: 10.0rem;
+			height: 14.4rem;
+			position: relative;
+		}
+		.draw .draw-des{
+			position: absolute;
+			top: 3.4rem;
+			left: 2.733333rem;
+			width: 4.48rem;
+			height: 0.866667rem;
+			line-height: 0.866667rem;
+			text-align: center;
+			background: #ff6600;
+			color: #fff600;
+			border-radius: 0.24rem;
+		}
+		.draw .order-remain{
+			background: #00ffff;
+			color: #1a0059;
+		}
+		.draw .order-remain .remain-num{
+			color: #ff0014;
+		}
+		.draw .draw-des .draw-num{
+			color: #fff;
+		}
+		
+		.draw .prize-top{
+			position: absolute;
+			top: 4.03rem;
+			left: 0;
+		}
+		.draw .prize-bottom{
+			position: absolute;
+			top: 6.95rem;
+			left: 0;
+		}
+		.draw .draw-btn{
+			position: absolute;
+			top: 11.15rem;
+		}
+		
+		.lucky-list{
+			position: relative;
+			padding-bottom: 1.5rem;
+		}
+		.lucky-list .lucky-title{
+			width: 10.0rem;
+			height: 3.72rem;
+		}
+		.lucky-list .lucky-bg{
+			margin: -1.65rem auto 0;
+		    width: 8.946667rem;
+		    padding: 1.75rem 0.233333rem 0.233333rem 0.233333rem;
+			height: 13.7rem;
+			border: 0.04rem solid #02c4fb;
+		}
+		.lucky-list .lucky-bg .lucky-body{
+			height: 11.55rem;
+			overflow-y: scroll;
+		}
+		.lucky-list .list-item{
+			height: 1.226667rem;
+			margin-bottom: 0.206667rem;
+			background: #152577;
+			color: #02c4fb;
+		}
+		.lucky-list .list-item .cell{
+			display: inline-block;
+			line-height: 1.226667rem;
+			text-align: center;
+			font-size: 0.373333rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.lucky-list .list-item .name{
+			width:2.16rem;
+		}
+		.lucky-list .list-item .tel{
+			width:3.2rem;
+		}
+		.lucky-list .list-item .prize{
+			width:2.25rem
+		}
 		
 		.mask-wrapper{ position: fixed; top: 0; left: 0;  width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 20; }
-		.mask-wrapper .mask-inner{ position: absolute; width: 86%; top: 23%; left: 7%; }
-		.mask-wrapper .mask-inner .mask-prize{ position: absolute; top: 20%; width: 100%; text-align: center; font-size: 16px; height:16px; color: yellow; }
-		.mask-wrapper .mask-inner .mask-btn{ position: absolute; width: 80%; left: 10%; top: 76%; height: 46px; }
-		
-		.mask-wrapper .mask-inner .mask-tel-id{ position: absolute; width: 45%; left: 38%; top: 54%; height: 60px; line-height: 28px; }
+		.mask-wrapper .mask-inner{ position: absolute; top: 3.0rem; height: 9.16rem;}
+		.mask-wrapper .mask-inner .mask-btn{ position: absolute; left: 1.28rem; top: 6.4rem; height: 1.39rem; width: 7.36rem; }
+		.mask-wrapper .mask-inner .mask-tel-id{ position: absolute; left: 3.63rem; top: 4.15rem; width: 4.8rem; height: 1.867rem; line-height: 0.93rem; }
+		.mask-tel{ height: 0.93rem; }
 		.mask-wrapper .mask-inner .mask-btn-login{ position: absolute; top: 77%; left: 10%; width: 80%; }
 		.toast{ position: fixed; top: 35%; left: 10%; width: 80%; height: 40px; line-height: 40px; background: rgba(0,0,0,0.5); color: #fff; z-index: 30; text-align: center; border-radius: 10px;font-size: 18px;}
+		
+		/* 可以设置不同的进入和离开动画 */
+		/* 设置持续时间和动画函数 */
+		.slide-fade-enter-active {
+		  transition: all .3s ease;
+		}
+		.slide-fade-leave-active {
+		  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		}
+		
+		.slide-fade-enter , .slide-fade-leave-to 
+		/* .slide-fade-leave-active for below version 2.1.8 */ {
+		  transform: translateY(-100px);
+		  opacity: 0;
+		}
+
 		</style>
 		
 	
 		<script src="https://i3.Yongche.name/s/js/201711/vue.min.js?1478153218"></script>
-        <script src="<{asset:js/jquery/jquery-1.8.3.min.js}>"></script>
-    		<!--<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>-->
+        <!--<script src="<{asset:js/jquery/jquery-1.8.3.min.js}>"></script>-->
+    		<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+    		<script type="text/javascript" src="js/flexible.js"></script>
 	</head>
 	<body>
 		<div id="app">
 			<div class="wrapper">
 				<div class="head">
-					<img src="https://i1.Yongche.name/media/g2/M02/19/2E/rBEBP1n9ijuISw2EAAHOMyBp9-oAAKAoAFgvq8AAc5L865.png" width="100%"/>
-				</div>
-				
-				<div class="timer">
-					<div class="timer-text">
-						<div class="timer-text-order">当前完成“随叫随到”订单数<span id="order-num" class="order-num" v-html="orderNums"></span>单</div>
-						<div class="timer-text-more"> 还差{{orderRemain}}单才能抽奖</div>
-					</div>
+					<img src="img/headbg.png" width="100%" height="100%"/>
+					<div class="rule-btn" @click=showRule>规则</div>
+					<div class="order-num"  v-html="orderNums"></div>
 				</div>
 				<div class="draw">
-					<div class="draw-bg">
-						<img src="https://i3.Yongche.name/media/g2/M01/19/2E/rBEBP1n9inSII26qAADrqxKdIEcAAKAoQCMYtQAAOvD582.png" width="100%" height="100%" />
-					</div>
-					<div class="draw-bg twinkle-bg">
-						<img src="https://i1.Yongche.name/media/g2/M02/19/2E/rBEBP1n9inSISMNKAADijC5dHZEAAKAoAFt5AUAAOKk133.png" width="100%" height="100%" />
-					</div>
-					<div class="draw-box-btn">
-						<div class="draw-box">
-							<img src="https://i2.Yongche.name/media/g2/M02/19/2E/rBEBP1n9iK-ISAheAABA8SMeGqcAAKAoADpgQIAAEEJ539.png" width="100%"/>
+					<img src="img/drawbg.png" width="100%" height="100%"/>
+					<div>
+						<div v-show="!orderRemain" class="draw-des">
+							<div class="ok-draw">您当前有<span class="draw-num" v-html="drawNum"> 1 </span>次抽奖机会</div>
 						</div>
-						<div class="draw-btn" @click=getResult>
-							<img v-bind:src="drawBtnState" width="100%"/>
+						<div v-show="orderRemain" class="draw-des order-remain">
+							<div class="no-draw">距离抽奖还差<span class="remain-num" v-html="orderRemain"></span>单</div>
 						</div>
 					</div>
-					
+					<div>
+						<div class="prize prize-top">
+							<img v-show="currentIdx!=5" src="img/drawprize60.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===5" src="img/drawprize61.png" width="100%" height="100%"/>
+						</div>
+						<div class="prize prize-top">
+							<img v-show="currentIdx!=4" src="img/drawprize50.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===4" src="img/drawprize51.png" width="100%" height="100%"/>
+						</div>
+						<div class="prize prize-top">
+							<img v-show="currentIdx!=3" src="img/drawprize40.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===3" src="img/drawprize41.png" width="100%" height="100%"/>
+						</div>
+						<div class="prize prize-bottom">
+							<img v-show="currentIdx!=2" src="img/drawprize30.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===2" src="img/drawprize31.png" width="100%" height="100%"/>
+						</div>
+						<div class="prize prize-bottom">
+							<img v-show="currentIdx!=1" src="img/drawprize20.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===1" src="img/drawprize21.png" width="100%" height="100%"/>
+						</div>
+						<div class="prize prize-bottom">
+							<img v-show="currentIdx!=0" src="img/drawprize10.png" width="100%" height="100%"/>
+							<img v-show="currentIdx===0" src="img/drawprize11.png" width="100%" height="100%"/>
+						</div>
+					</div>
+					<div class="draw-btn" @click=getResult>
+						<img v-show="!isClick" src="img/drawbtn-no.png"  width="100%" height="100%"/>
+						<img v-show="isClick" src="img/drawbtn-yes.png"  width="100%" height="100%"/>
+					</div>
 				</div>
+				
 				<div class="lucky-list">
 					<div class="lucky-title">
-						<img src="https://i3.Yongche.name/media/g2/M01/19/2E/rBEBJVn9iq6IM1hLAAAVywUdO_IAAKAoQCwXpEAABXj514.png" width="100%"/>
+						<img src="img/lucky-list-bg.png" width="100%" height="100%"/>
 					</div>
 					<div class="lucky-bg">
-						<div class="list-title">
-							<div class="cell name">姓名</div>
-							<div class="cell tel">手机号</div>
-							<div class="cell prize">奖品</div>
-						</div>
-						<div class="list-body" v-show="luckyList.length>0">
-							<div class="list-item" v-for="item in luckyList">
-								<div class="cell name" v-html="item.name"></div>
-								<div class="cell tel" v-html="item.cellphone"></div>
-								<div class="cell prize" v-html="toPrize(item.award_type)"></div>
+						<div class="lucky-body">
+							<div class="list-body" v-show="luckyList.length>0">
+								<div class="list-item" v-for="item in luckyList">
+									<div class="cell name" v-html="item.name"></div>
+									<div class="cell tel" v-html="item.cellphone"></div>
+									<div class="cell prize" v-html="toPrize(item.award_type)"></div>
+								</div>
 							</div>
 						</div>
+							
 						<div class="list-body-no" v-show="luckyList.length===0">中奖名单将会在这里展现</div>
 					</div>
 				</div>
 			</div>
-			<div class="mask-wrapper" v-show="showMask && isLogin">
-				<div class="mask-inner">
-					<div class="mask-bg">
-						<img v-bind:src="showMaskBg" width="100%"/>
-					</div>
-					<div class="mask-prize" v-html="winPrize"></div>
-					<div class="mask-btn" v-show="isLogin" @click=closeMask>
-						<img src="https://i3.Yongche.name/media/g2/M03/19/2E/rBEBJVn9jHyIe_znAAArBrpqmz0AAKAngOXaswAACse777.png" width="100%"/>
+			
+			<transition name="slide-fade">
+			    <div class="mask-wrapper" v-show="showMask && isLogin"  @click=closeMask>
+					<div class="mask-inner">
+						<img v-bind:src="showMaskBg" width="100%" height="100%"/>
 					</div>
 				</div>
-			</div>
+			</transition>
+				
+			
 			<div class="mask-wrapper" v-show="showMask && !isLogin">
 				<div class="mask-inner">
-					<div class="mask-bg">
-						<img v-bind:src="showMaskBg" width="100%"/>
-					</div>
+					<img v-bind:src="showMaskBg" width="100%"/>
 					<div class="mask-tel-id">
 						<div class="mask-tel">
 							<input type="number" name="tel" placeholder="请输入手机号" oninput="if(value.length>11);value=value.slice(0,11)" v-model="telNum" />
@@ -146,9 +251,7 @@
 							<input type="number" name="idcard" placeholder="请输入身份证后四位" oninput="if(value.length>4);value=value.slice(0,4)" v-model="idCard" />
 						</div>
 					</div>
-					<div class="mask-btn-login" @click=login>
-						<img src="https://i2.Yongche.name/media/g2/M01/19/32/rBEBP1oCYr2ICTCkAAAUf8XeqScAAKB-QP98R8AABSX984.png" width="100%"/>
-					</div>
+					<div class="mask-btn" @click=login></div>
 				</div>
 			</div>
 			<div class="toast" v-show="showToast" v-html="toastMsg"></div>
@@ -175,18 +278,93 @@ new Vue({
   data:{
     http:"//yaoyakun.market.Yongche.org",
     //http:"//market.Yongche.com",
-	drawBtnTypes:["https://i2.Yongche.name/media/g2/M01/19/2E/rBEBJVn9iq6IQ0XOAAAU6wIkjlcAAKAoQCwDWoAABUD275.png","https://i1.Yongche.name/media/g2/M02/19/2E/rBEBP1n9iq2IHZKGAAAU3ilU2-oAAKAoAGAXNwAABT2072.png","https://i3.Yongche.name/media/g2/M04/19/2E/rBEBJVn9iK-IUMaFAAAVy5rudWgAAKAnwKiOWsAABXj236.png"],
   
- 	maskBgs:["https://i3.Yongche.name/media/g2/M03/19/32/rBEBJVoCYMyIELiVAAN5o9ioJSMAAKB-wG2NrcAA3m7481.png","https://i2.Yongche.name/media/g2/M03/19/2E/rBEBP1n9jHyIGo_YAARTK_MEi3gAAKAngOg7PoABFND414.png"],
-  	isLogin:0,
-  	isClick:0,
-	orderNums:0,
-	orderRemain:12,
-	drawBtn:false,
-	luckyList:[],
+ 	maskBgs:["img/mask-prize0.png","img/mask-prize1.png","img/mask-prize2.png","img/mask-prize3.png","img/mask-prize4.png","img/mask-login.png","img/mask-order.png","img/mask-rule.png"],
+  	isLogin:1,
+  	isClick:1,
+	orderNums:8,
+	orderRemain:0,
+	drawNum:1,
+	currentIdx:0,
+	luckyList:[ // 获奖司机列表
+            {
+                "name": "test",
+                "cellphone": 18810605345,
+                "award_type":0
+            },
+            {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+             {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+             {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+             {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":4
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":5
+            }
+        ],
 	showMask:false,
 	maskType:0,
-	winPrize:"",
 	showToast:false,
 	toastMsg:"",
 	telNum:null,
@@ -194,17 +372,12 @@ new Vue({
 	driver_id:0
   },
   computed:{
-  	drawBtnState:function(){
-  		var idx = this.isClick+1;
-  		return this.drawBtnTypes[idx];
-  	},
   	showMaskBg:function(){
-  		var idx = this.isLogin==0 ? 0 : this.maskType;
-		return this.maskBgs[idx];
+		return this.maskBgs[this.maskType];
   	}
   },
   mounted: function(){
-	this.initData();
+//	this.initData();
 	setTimeout(function(){
 		stopBubble(document.getElementById("list-body"));
 	},1000)
@@ -223,7 +396,8 @@ new Vue({
 	         		console.log(data)
 	         		vm.isLogin = data.result.isLogin;
 	          		if(vm.isLogin==0){
-	           			vm.showMask=true;
+	          			vm.maskType=5;
+//	           			vm.showMask=true;
 	          		}
 	         		vm.orderNums = data.result.count;
 	         		vm.orderRemain = data.result.count_remain;
@@ -275,9 +449,16 @@ new Vue({
 		if(this.isClick<=0){//不可以抽奖
 			return
 		}
-		this.isClick = -1//已经点击过了
+		//this.isClick = 0;  //已经点击过了
+		//this.drawNum = 0;  //抽奖次数0
 		var vm = this;
-		$.ajax({
+		
+		var num =parseInt(Math.random()*5) 
+		console.log(num)
+		vm.maskType=num;
+        vm.rotatePrize(num);
+             		
+		/*$.ajax({
              type: "GET",
              url: vm.http+"/miscellaneous/Driverdoubletwelve/getResult?driver_id="+vm.driver_id,
              dataType:'jsonp',
@@ -285,29 +466,53 @@ new Vue({
              jsonp:'callback',
              success: function(data){
              	if(data.code==200){//100%中奖
-	         		vm.maskType=1;
-	         		vm.winPrize=data.msg;
+             		//开始轮播
+             		vm.rotatePrize(data.result.award_type);
+	         	}else if(data.code==200){//未完成8个订单
+	         		vm.maskType=6;
+	         		vm.showMask=true;
 	         	}
-	         	vm.showMask=true;
 	         	vm.initData();//刷新页面
               },
               error:function(e){
                 alert(JSON.stringify(e));
               }
-        });
+        });*/
+	},
+	rotatePrize:function(idx){
+		var vm = this;
+		var rotateNum = idx>=3 ? 4*6+(idx+1) : 4*6+idx;
+		var i=0;
+		var timer = setInterval(function(){
+			vm.currentIdx = i%6;
+			if(i==rotateNum){
+				clearInterval(timer);
+				vm.maskType=idx;
+				setTimeout(function(){
+					vm.showMask=true;
+				},150)
+			}
+			i++;
+		},100);
+	},
+	showRule:function(){
+		this.maskType=7;
+		this.showMask=true;
 	},
 	closeMask:function(){
 		this.showMask=false;
 	},
 	toPrize:function(num){
 		if(num===0){
-			return "前10个订单";
+			return "100元";
 		}else if(num==1){
-			return "二十个订单免佣 ";
+			return "500元 ";
 		}else if(num==2){
-			return "一百个订单免佣";
+			return "1000元";
+		}else if(num==3){
+			return "华为手机";
 		}else{
-			return "五万元现金 ";
+			return "凯美瑞汽车 ";
 		}
 	}
  }
