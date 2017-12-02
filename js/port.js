@@ -66,3 +66,4 @@ http://yaoyakun.market.yongche.org/miscellaneous/Driverdoubletwelve/getResult?dr
 4、订单开始时间和结束时间均在活动期间内有效；
 5、参与活动的订单类型为马上用车订单；
 6、活动当天订单无差评、无风控、无账单疑义等。
+

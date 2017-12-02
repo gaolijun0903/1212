@@ -403,20 +403,24 @@ new Vue({
 	rotatePrize:function(idx){
 		var vm = this;
 		var rotateNum = idx>=3 ? 4*6+(idx+1) : 4*6+idx;
-		var i=0;
-		var time = 100;
-		var timer = setInterval(function(){
+		var i=0 , time = 100 , timer;
+		
+		count();
+		function count(){
+			i++;
+			timer = setTimeout(function(){count()},time);
 			vm.currentIdx = i%6;
-			time += i*5;
+			if(i>15){
+				time+=i*2;
+			}
 			if(i==rotateNum){
-				clearInterval(timer);
+				clearTimeout(timer);
 				vm.maskType=idx;
 				setTimeout(function(){
 					vm.showMask=true;
 				},150)
 			}
-			i++;
-		},time);
+		}
 	},
 	showRule:function(){
 		this.maskType=7;
@@ -424,7 +428,7 @@ new Vue({
 	},
 	closeMask:function(){
 		this.showMask=false;
-		this.initData();//刷新页面
+		//this.initData();//刷新页面
 	},
 	toPrize:function(num){
 		if(num===0){

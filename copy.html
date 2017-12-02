@@ -230,7 +230,7 @@ new Vue({
   methods:{
   	initData:function (){// 获取随叫随到订单数
   		var vm = this;
-  		/*JSONP.init({
+  		JSONP.init({
   			error:function(ex){
   				alert("Failed to load:" + ex.url);
   			}
@@ -248,9 +248,9 @@ new Vue({
 	         		vm.isClick = data.result.isClick;
 	         		vm.luckyList = data.result.driverList;
 	            }
- 		});*/
+ 		});
  		
-  		$.ajax({
+  		/*$.ajax({
              type: "GET",
              url: vm.http+"/miscellaneous/Driverdoubletwelve/getInitPage?driver_id="+vm.driver_id,
              dataType:'jsonp',
@@ -276,7 +276,7 @@ new Vue({
                 //alert(JSON.stringify(e));
                 alert("网路异常");
               }
-        });
+        });*/
 	},
 	login:function(){//登录，传手机号和身份证后四位
   		var vm = this;
@@ -289,7 +289,7 @@ new Vue({
      		return
 		}
 		
-		/*JSONP.init({
+		JSONP.init({
   			error:function(ex){
   				alert("Failed to load:" + ex.url);
   			}
@@ -306,9 +306,9 @@ new Vue({
 	         			vm.showToast = false;
 	         		},2000)
 	            }
- 		});*/
+ 		});
  		
-		$.ajax({
+		/*$.ajax({
              type: "GET",
              url: vm.http+"/miscellaneous/Driverdoubleeleven/login?cellphone="+vm.telNum+"&id_card="+vm.idCard,
              dataType:'jsonp',
@@ -330,7 +330,7 @@ new Vue({
               error:function(e){
                 alert(JSON.stringify(e));
               }
-        });
+        });*/
   	},
 	getResult:function(){//点击抽奖
 		if(this.isClick<=0){//不可以抽奖
@@ -345,7 +345,7 @@ new Vue({
 //		vm.maskType=num;
 //      vm.rotatePrize(num);
         
-        /*JSONP.init({
+        JSONP.init({
   			error:function(ex){
   				alert("Failed to load:" + ex.url);
   			}
@@ -358,9 +358,9 @@ new Vue({
          		vm.maskType=6;
          		vm.showMask=true;
          	}
- 		});*/
+ 		});
  		
-		$.ajax({
+		/*$.ajax({
              type: "GET",
              url: vm.http+"/miscellaneous/Driverdoubletwelve/getResult?driver_id="+vm.driver_id,
              dataType:'jsonp',
@@ -378,25 +378,28 @@ new Vue({
               error:function(e){
                 alert(JSON.stringify(e));
               }
-        });
+        });*/
 	},
 	rotatePrize:function(idx){
 		var vm = this;
 		var rotateNum = idx>=3 ? 4*6+(idx+1) : 4*6+idx;
-		var i=0;
-		var time = 100;
-		var timer = setInterval(function(){
+		var i=0 , time = 100 , timer;
+		count();
+		function count(){
+			i++;
+			timer = setTimeout(function(){count()},time);
 			vm.currentIdx = i%6;
-			time += i*5;
+			if(c>18){
+				time+=i*10;
+			}
 			if(i==rotateNum){
-				clearInterval(timer);
+				clearTimeout(timer);
 				vm.maskType=idx;
 				setTimeout(function(){
 					vm.showMask=true;
 				},150)
 			}
-			i++;
-		},time);
+		}
 	},
 	showRule:function(){
 		this.maskType=7;
