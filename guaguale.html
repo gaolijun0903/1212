@@ -13,7 +13,7 @@
 		</style>
 	</head>
 	<body>
-		<div id='div' style='width:540px;height:360px;background:url("img/headbg.png") no-repeat'>
+		<div id='div' style='width:340px;height:360px;background:url("img/headbg.png") no-repeat'>
 		</div>
 			
 <script type="text/javascript">
@@ -59,8 +59,8 @@ function init() {
     myCanvasObject.addEventListener(tapstart, function(e) {
         this.style.cursor = "move";
         isDown = true;
-        xPointer = hastouch ? e.targetTouches[0].pageX : e.clientX - this.offsetLeft;
-        yPointer = hastouch ? e.targetTouches[0].pageY : e.clientY - this.offsetTop;;
+        xPointer = hastouch ? e.targetTouches[0].pageX - this.offsetLeft : e.clientX - this.offsetLeft;
+		yPointer = hastouch ? e.targetTouches[0].pageY - this.offsetTop: e.clientY - this.offsetTop;
         pointerArr.push([xPointer, yPointer]);
         circleReset(ctx);
     });
@@ -69,10 +69,10 @@ function init() {
     //鼠标按下后拖动
     myCanvasObject.addEventListener(tapmove, function(e) {
         if (isDown) {
-        xPointer = hastouch ? e.targetTouches[0].pageX : e.clientX - this.offsetLeft;;
-        yPointer = hastouch ? e.targetTouches[0].pageY : e.clientY - this.offsetTop;;
-        pointerArr.push([xPointer, yPointer]);
-        circleReset(ctx);
+	        xPointer = hastouch ? e.targetTouches[0].pageX - this.offsetLeft : e.clientX - this.offsetLeft;
+			yPointer = hastouch ? e.targetTouches[0].pageY - this.offsetTop: e.clientY - this.offsetTop;
+	        pointerArr.push([xPointer, yPointer]);
+	        circleReset(ctx);
         }
     });
 
