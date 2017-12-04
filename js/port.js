@@ -38,9 +38,20 @@ http://yaoyakun.market.yongche.org/miscellaneous/Driverdoubletwelve/getResult?dr
 
 {
     "code": 200,
-    "msg": "恭喜您获得十个订单免佣资格 12月13日开始，完成的前10个订单将减免佣金"
+    "msg": "恭喜您获得十个订单免佣资格 12月13日开始，完成的前10个订单将减免佣金",
+    "result":{
+    	"award_type":0
+    }
 }
 
+ * code说明
+ *
+ * 101 活动未开始
+ * 102 活动已结束
+ * 201 司机不存在
+ * 202 请完成8单随叫随到订单后再来抽奖哦~
+ * 203 请登录后再抽奖
+ * 205 您已抽过奖
 
 
     protected $award_arr = [
@@ -67,3 +78,18 @@ http://yaoyakun.market.yongche.org/miscellaneous/Driverdoubletwelve/getResult?dr
 5、参与活动的订单类型为马上用车订单；
 6、活动当天订单无差评、无风控、无账单疑义等。
 
+http://i1.Yongche.name/media/g2/M03/1A/1B/rBEBP1okuOCIW-x-AAA7KC5mkCMAAKSFQGFpG8AADtA510.png
+http://i3.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIfaJHAABOPy8Z2FwAAKSEAP_m7cAAE5X359.png
+
+http://i2.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIHyinAAB7rmypK0YAAKSFAJaY3UAAHvG472.png
+
+
+maskBgs:[
+ 	"//i3.Yongche.name/media/g2/M02/1A/19/rBEBP1oiePSIRXpEAABfUxlAWiMAAKRaALHmTUAAF9r754.png",
+ 	"//i2.Yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIRd23AABc3EhAE3MAAKRZwKbAqAAAFz0095.png",
+ 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIDCxfAABfeA4SNmAAAKRaQHSTr4AAF-Q383.png",
+ 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIEphcAAB3Myr6mTMAAKRaQHSrk4AAHdL638.png",
+ 	"//i3.Yongche.name/media/g2/M02/1A/19/rBEBP1oiePSIGHTEAAB7Y68mDz8AAKRaALH-KAAAHt7477.png",
+ 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSICfGCAABWXRbGPZYAAKRaQHRmmkAAFZ1472.png",
+ 	"//i1.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIA11WAABdyPvrzIYAAKRaQHR8N4AAF3g619.png",
+ 	"//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIbuiNAADAiEvDveQAAKRZwKbX5QAAMCg925.png"],

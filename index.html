@@ -7,7 +7,7 @@
 		<meta name="screen-orientation" content="portrait"><!-- uc强制竖屏 -->
 		<meta name="x5-orientation" content="portrait"><!-- QQ强制竖屏 -->
 		<title>双十二抽奖活动</title>
-		 <script type="text/javascript">
+		<script type="text/javascript">
 	        var screenWidth=window.screen.width;
 	        document.getElementsByTagName('html')[0].style.fontSize=screenWidth/10+'px';
 	    </script>
@@ -40,7 +40,8 @@
 		.lucky-list .list-item .cell{ display: inline-block; line-height: 1.226667rem; text-align: center; font-size: 0.373333rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 		.lucky-list .list-item .name{ width:2.16rem; }
 		.lucky-list .list-item .tel{ width:3.2rem; }
-		.lucky-list .list-item .prize{ width:2.25rem; }
+		.lucky-list .list-item .prize{ width:2.25rem; color: #baeb4e;}
+		.lucky-list .lucky-bg .list-body-no{line-height: 8rem; color: #fff; text-align: center; font-size: 0.4rem;}
 		
 		.mask-wrapper{ position: fixed; top: 0; left: 0;  width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 20; }
 		.mask-wrapper .mask-inner{ position: absolute; top: 3.0rem; height: 9.16rem;}
@@ -71,13 +72,7 @@
 		    transform: scale(1);
 		  }
 		}
-
 		</style>
-	
-		<script src="https://i3.Yongche.name/s/js/201711/vue.min.js?1478153218"></script>
-        <!--<script src="<{asset:js/jquery/jquery-1.8.3.min.js}>"></script>-->
-    		<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
-    		<script type="text/javascript" src="js/flexible.js"></script>
 	</head>
 	<body>
 		<div id="app">
@@ -135,16 +130,17 @@
 					</div>
 					<div class="lucky-bg">
 						<div class="lucky-body">
-							<div class="list-body" v-show="luckyList.length>0">
+							<div id="list-body" class="list-body" v-show="luckyList.length>0">
 								<div class="list-item" v-for="item in luckyList">
 									<div class="cell name" v-html="item.name"></div>
 									<div class="cell tel" v-html="item.cellphone"></div>
 									<div class="cell prize" v-html="toPrize(item.award_type)"></div>
 								</div>
 							</div>
+							<div class="list-body-no" v-show="luckyList.length===0">中奖名单将会在这里展现</div>
 						</div>
 							
-						<div class="list-body-no" v-show="luckyList.length===0">中奖名单将会在这里展现</div>
+						
 					</div>
 				</div>
 			</div>
@@ -176,7 +172,10 @@
 				<div class="toast" v-show="showToast" v-html="toastMsg"></div>
 			</transition>
 		</div>
-			
+		<script src="https://i3.Yongche.name/s/js/201711/vue.min.js?1478153218"></script>
+        <!--<script src="<{asset:js/jquery/jquery-1.8.3.min.js}>"></script>-->
+		<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
+		<script type="text/javascript" src="js/flexible.js"></script>			
 <script type="text/javascript">
     function stopBubble(odiv) {
 	    if(odiv){
@@ -297,6 +296,7 @@ new Vue({
   	}
   },
   mounted: function(){
+  	//this.luckyList=[]
 //	this.initData();
 	setTimeout(function(){
 		stopBubble(document.getElementById("list-body"));
@@ -324,7 +324,7 @@ new Vue({
 	         		vm.isClick = data.result.isClick;
 	         		vm.luckyList = data.result.driverList;
 	            }else{
-	            	alert(data.code);
+	            	vm.toastMsgFn(data.code);
 	            }
               },
               error:function(e){
@@ -355,11 +355,7 @@ new Vue({
 	         		vm.driver_id = data.result.driver_id;
 	         		vm.initData();//刷新页面
 	            }else{//登录信息错误不可抽奖
-	            	vm.showToast = true;
-	         		vm.toastMsg=data.msg;
-	         		setTimeout(function(){
-	         			vm.showToast = false;
-	         		},2000)
+	            	vm.toastMsgFn(data.msg);
 	            }
               },
               error:function(e){
@@ -388,11 +384,13 @@ new Vue({
              jsonp:'callback',
              success: function(data){
              	if(data.code==200){//100%中奖
-             		//开始轮播
-             		vm.rotatePrize(data.result.award_type);
-	         	}else if(data.code==200){//未完成8个订单
+         		//开始轮播
+	         		vm.rotatePrize(data.result.award_type);
+	         	}else if(data.code==202){//未完成8个订单
 	         		vm.maskType=6;
 	         		vm.showMask=true;
+	         	}else{
+	         		vm.toastMsgFn(data.code);
 	         	}
               },
               error:function(e){
@@ -404,7 +402,7 @@ new Vue({
 		var vm = this;
 		var rotateNum = idx>=3 ? 4*6+(idx+1) : 4*6+idx;
 		var i=0 , time = 100 , timer;
-		
+		vm.currentIdx = 0;
 		count();
 		function count(){
 			i++;
@@ -429,6 +427,14 @@ new Vue({
 	closeMask:function(){
 		this.showMask=false;
 		//this.initData();//刷新页面
+	},
+	toastMsgFn:function(msg){
+		var vm = this;
+		vm.showToast = true;
+ 		vm.toastMsg=msg;
+ 		setTimeout(function(){
+ 			vm.showToast = false;
+ 		},2000)
 	},
 	toPrize:function(num){
 		if(num===0){
