@@ -28,9 +28,9 @@
 		.draw .order-remain{ background: #00ffff; color: #1a0059; }
 		.draw .order-remain .remain-num{ color: #ff0014; }
 		.draw .draw-des .draw-num{ color: #fff; }
-		.draw .prize-top{ position: absolute; top: 4.03rem; left: 0; }
-		.draw .prize-bottom{ position: absolute; top: 6.95rem; left: 0; }
-		.draw .draw-btn{ position: absolute; top: 11.15rem; 	}
+		.draw .prize{ position: absolute; top: 4.06rem; left: 0; }
+		.draw .prize-bottom{ position: absolute; top: 7.05rem; left: 0; }
+		.draw .draw-btn{ position: absolute; top: 11.35rem; }
 		
 		.lucky-list{ position: relative; padding-bottom: 1.5rem; }
 		.lucky-list .lucky-title{ width: 10.0rem; height: 3.72rem; }
@@ -83,39 +83,19 @@
 					<div class="order-num"  v-html="orderNums"></div>
 				</div>
 				<div class="draw">
-					<img src="//i3.Yongche.name/media/g2/M02/1A/19/rBEBP1oie5uIHnlxAAA1MCpK9egAAKRaAO1IF0AADVI145.png" width="100%" height="100%"/>
+					<img src="//i2.yongche.name/media/g2/M01/1A/1D/rBEBP1omPa6IWbpuAAA4tTfTqx4AAKSzQJ1LcUAADjN344.png" width="100%" height="100%"/>
 					<div>
 						<div v-show="!orderRemain" class="draw-des">
-							<div class="ok-draw">您当前有<span class="draw-num" v-html="drawNum"> 1 </span>次抽奖机会</div>
+							<div class="ok-draw">您当前有<span class="draw-num" v-html="drawNum">  </span>次抽奖机会</div>
 						</div>
 						<div v-show="orderRemain" class="draw-des order-remain">
 							<div class="no-draw">距离抽奖还差<span class="remain-num" v-html="orderRemain"></span>单</div>
 						</div>
 					</div>
 					<div>
-						<div class="prize prize-top">
-							<img v-show="currentIdx!=5" src="//i1.Yongche.name/media/g2/M03/1A/1B/rBEBP1okuOCIW-x-AAA7KC5mkCMAAKSFQGFpG8AADtA510.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===5" src="//i3.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIfaJHAABOPy8Z2FwAAKSEAP_m7cAAE5X359.png" width="100%" height="100%"/>
-						</div>
-						<div class="prize prize-top">
-							<img v-show="currentIdx!=4" src="//i2.Yongche.name/media/g2/M02/1A/19/rBEBJVoiewOITn9fAAA8aqWUuRYAAKRaANpXDMAADyC297.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===4" src="//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiewOIL28oAABRTPvt19sAAKRZwOT_5UAAFFk231.png" width="100%" height="100%"/>
-						</div>
-						<div class="prize prize-top">
-							<img v-show="currentIdx!=3" src="//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCILN8LAAA82I6yj5AAAKRaQIRYxYAADzw602.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===3" src="//i2.Yongche.name/media/g2/M01/1A/19/rBEBP1oiemCIVy8LAABSO7zmJhwAAKRaQIRoAYAAFJT783.png" width="100%" height="100%"/>
-						</div>
-						<div class="prize prize-bottom">
-							<img v-show="currentIdx!=2" src="//i2.Yongche.name/media/g2/M04/1A/19/rBEBP1oiemCIPAttAAA8cU12gvMAAKRZwLFTt0AADyJ825.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===2" src="//i3.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIehtQAABQqpZw4PYAAKRaQIRElQAAFDC138.png" width="100%" height="100%"/>
-						</div>
-						<div class="prize prize-bottom">
-							<img v-show="currentIdx!=1" src="//i1.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIKVCWAAA8yVZIPOoAAKRaQIQhSoAADzh044.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===1" src="//i1.Yongche.name/media/g2/M01/1A/19/rBEBP1oiemCINsRFAABQMXnC2EkAAKRaQIQwgsAAFBJ634.png" width="100%" height="100%"/>
-						</div>
-						<div class="prize prize-bottom">
-							<img v-show="currentIdx!=0" src="//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiemCIEf9NAAA86KEtsNMAAKRZwLFEd0AAD0A832.png" width="100%" height="100%"/>
-							<img v-show="currentIdx===0" src="//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIRugUAABQEhKN1VQAAKRaQIQNQAAAFAq742.png" width="100%" height="100%"/>
+						<div class="prize" :class="{'prize-bottom':index>=3}"  v-for="(prize,index) in prizeArr">
+							<img v-show="currentIdx!=(5-index)" :src="prize.blue" width="100%" height="100%"/>
+							<img v-show="currentIdx===(5-index)" :src="prize.red" width="100%" height="100%"/>
 						</div>
 					</div>
 					<div class="draw-btn" @click=getResult>
@@ -174,8 +154,6 @@
 		<script src="https://i3.Yongche.name/s/js/201711/vue.min.js?1478153218"></script>
         <script src="https://i1.Yongche.name/s/js/201711/jsonp.js?1478153218"></script>
         <!--<script src="<{asset:js/jquery/jquery-1.8.3.min.js}>"></script>-->
-		<!--<script type="text/javascript" src="js/jquery-2.0.0.min.js"></script>
-		<script type="text/javascript" src="js/flexible.js"></script>-->			
 <script type="text/javascript">
     function stopBubble(odiv) {
 	    if(odiv){
@@ -184,7 +162,6 @@
 	        })
 	        odiv.addEventListener("touchmove",function(ev){
 	            ev.cancelBubble = true;
-	            //ev.preventDefault();
 	            return false;
 	        })
 	        odiv.addEventListener("touchend",function(ev){
@@ -195,26 +172,53 @@
 new Vue({
   el: '#app',
   data:{
-    http:"//yaoyakun.market.Yongche.org",
+    http:"//yaoyakun-market.Yongche.org",
 //  http:"//market.Yongche.com",
  	maskBgs:[
- 	"//i3.Yongche.name/media/g2/M02/1A/19/rBEBP1oiePSIRXpEAABfUxlAWiMAAKRaALHmTUAAF9r754.png",
- 	"//i2.Yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIRd23AABc3EhAE3MAAKRZwKbAqAAAFz0095.png",
- 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIDCxfAABfeA4SNmAAAKRaQHSTr4AAF-Q383.png",
- 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIEphcAAB3Myr6mTMAAKRaQHSrk4AAHdL638.png",
- 	"//i2.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIHyinAAB7rmypK0YAAKSFAJaY3UAAHvG472.png",
- 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSICfGCAABWXRbGPZYAAKRaQHRmmkAAFZ1472.png",
- 	"//i1.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIA11WAABdyPvrzIYAAKRaQHR8N4AAF3g619.png",
- 	"//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIbuiNAADAiEvDveQAAKRZwKbX5QAAMCg925.png"],
+ 	"//i1.Yongche.name/media/g2/M04/1A/1D/rBEBP1omWnmIHR-MAABdkTEikYcAAKS4wP-pzQAAF2p692.png",//40元
+ 	"//i3.Yongche.name/media/g2/M02/1A/1D/rBEBP1omWnmIIQu1AABdUW9Byf4AAKS5APrlCsAAF1p972.png",//200元
+ 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIDCxfAABfeA4SNmAAAKRaQHSTr4AAF-Q383.png",//1000元
+ 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIEphcAAB3Myr6mTMAAKRaQHSrk4AAHdL638.png",//华为手机
+ 	"//i2.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIHyinAAB7rmypK0YAAKSFAJaY3UAAHvG472.png",//丰田凯美瑞
+ 	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSICfGCAABWXRbGPZYAAKRaQHRmmkAAFZ1472.png",//登录
+ 	"//i2.Yongche.name/media/g2/M04/1A/1D/rBEBJVomWnmIeRHPAABXL5ruHxsAAKS4wP-T-0AAFdH070.png",//未完成订单
+ 	"//i1.yongche.name/media/g2/M02/1A/1E/rBEBP1onlluITBJRAADTrY7rx8YAAKTXAGf95gAANPF018.png" //规则
+ 	],
+ 	prizeArr:[
+	{//丰田凯美瑞
+		blue:"//i1.Yongche.name/media/g2/M03/1A/1B/rBEBP1okuOCIW-x-AAA7KC5mkCMAAKSFQGFpG8AADtA510.png",
+		red:"//i3.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIfaJHAABOPy8Z2FwAAKSEAP_m7cAAE5X359.png"
+	},
+	{//华为手机
+		blue:"//i2.Yongche.name/media/g2/M02/1A/19/rBEBJVoiewOITn9fAAA8aqWUuRYAAKRaANpXDMAADyC297.png",
+		red:"//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiewOIL28oAABRTPvt19sAAKRZwOT_5UAAFFk231.png"
+	},
+	{//40元（右上）
+		blue:"//i3.Yongche.name/media/g2/M04/1A/1D/rBEBP1omFeaIVF1zAAClI_muiLsAAKSsAJTODIAAKU7890.png",
+		red:"//i1.Yongche.name/media/g2/M03/1A/1D/rBEBP1omFeaIXyEPAADcj6QdeXcAAKSsQCZZRgAANyn258.png"
+	},
+	{//1000元
+		blue:"//i2.Yongche.name/media/g2/M04/1A/19/rBEBP1oiemCIPAttAAA8cU12gvMAAKRZwLFTt0AADyJ825.png",
+		red:"//i3.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIehtQAABQqpZw4PYAAKRaQIRElQAAFDC138.png"
+	},
+	{//200元
+		blue:"//i2.Yongche.name/media/g2/M04/1A/1D/rBEBJVomFeaILXQmAAA89C3E1sUAAKSsAJS-yYAAD0M071.png",
+		red:"//i2.Yongche.name/media/g2/M03/1A/1D/rBEBJVomFeaIIUB6AADdrSjlhYoAAKSsQCYh1MAAN3F893.png"
+	},
+	{//40元
+		blue:"//i3.Yongche.name/media/g2/M04/1A/1D/rBEBP1omFeaIYqegAAA8D_k4dT8AAKSsAJSvv8AADwn670.png",
+		red:"//i1.Yongche.name/media/g2/M03/1A/1D/rBEBP1omFeaIdh_9AADjzwJRr4sAAKSsQCXo2wAAOPn502.png"
+	}],
   	isLogin:0,
   	isClick:0,
 	orderNums:0,
-	orderRemain:8,
+	orderRemain:4,
 	drawNum:0,
 	currentIdx:0,
 	luckyList:[],
 	showMask:false,
 	maskType:0,
+	award_type:0,//没有奖品
 	showToast:false,
 	toastMsg:"",
 	telNum:null,
@@ -248,10 +252,12 @@ new Vue({
           			vm.maskType=5;
            			vm.showMask=true;
           		}
-         		vm.orderNums = data.result.count;
-         		vm.orderRemain = data.result.count_remain;
-         		vm.isClick = data.result.isClick;
-         		vm.luckyList = data.result.driverList;
+         		vm.orderNums = data.result.count;//已完成订单数
+         		vm.orderRemain = data.result.count_remain;//还有几单未完成
+         		vm.drawNum = data.result.available_times;//几次抽奖机会
+         		vm.award_type = data.result.award_type;//中奖类型
+         		vm.isClick = data.result.isClick;//是否可以抽奖
+         		vm.luckyList = data.result.driverList;//中奖名单
             }else{
             	vm.toastMsgFn(data.code);
             }
@@ -271,10 +277,12 @@ new Vue({
 	          			vm.maskType=5;
 	           			vm.showMask=true;
 	          		}
-	         		vm.orderNums = data.result.count;
-	         		vm.orderRemain = data.result.count_remain;
-	         		vm.isClick = data.result.isClick;
-	         		vm.luckyList = data.result.driverList;
+	         		vm.orderNums = data.result.count;//已完成订单数
+	         		vm.orderRemain = data.result.count_remain;//还有几单未完成
+	         		vm.drawNum = data.result.available_times;//几次抽奖机会
+	         		vm.award_type = data.result.award_type;//中奖类型
+	         		vm.isClick = data.result.isClick;//是否可以抽奖
+	         		vm.luckyList = data.result.driverList;//中奖名单
 	            }else{
 	            	vm.toastMsgFn(data.code);
 	            }
@@ -416,9 +424,9 @@ new Vue({
 	},
 	toPrize:function(num){
 		if(num===1){
-			return "100元";
+			return "40元";
 		}else if(num==2){
-			return "500元 ";
+			return "200元 ";
 		}else if(num==3){
 			return "1000元";
 		}else if(num==4){

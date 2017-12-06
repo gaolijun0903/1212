@@ -78,11 +78,6 @@ http://yaoyakun.market.yongche.org/miscellaneous/Driverdoubletwelve/getResult?dr
 5、参与活动的订单类型为马上用车订单；
 6、活动当天订单无差评、无风控、无账单疑义等。
 
-http://i1.Yongche.name/media/g2/M03/1A/1B/rBEBP1okuOCIW-x-AAA7KC5mkCMAAKSFQGFpG8AADtA510.png
-http://i3.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIfaJHAABOPy8Z2FwAAKSEAP_m7cAAE5X359.png
-
-http://i2.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIHyinAAB7rmypK0YAAKSFAJaY3UAAHvG472.png
-
 
 maskBgs:[
  	"//i3.Yongche.name/media/g2/M02/1A/19/rBEBP1oiePSIRXpEAABfUxlAWiMAAKRaALHmTUAAF9r754.png",
@@ -93,3 +88,41 @@ maskBgs:[
  	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSICfGCAABWXRbGPZYAAKRaQHRmmkAAFZ1472.png",
  	"//i1.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSIA11WAABdyPvrzIYAAKRaQHR8N4AAF3g619.png",
  	"//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiePSIbuiNAADAiEvDveQAAKRZwKbX5QAAMCg925.png"],
+prizeArr:[
+	{
+		blue:"//i1.Yongche.name/media/g2/M03/1A/1B/rBEBP1okuOCIW-x-AAA7KC5mkCMAAKSFQGFpG8AADtA510.png",
+		red:"//i3.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIfaJHAABOPy8Z2FwAAKSEAP_m7cAAE5X359.png"
+	},
+	{
+		blue:"//i2.Yongche.name/media/g2/M02/1A/19/rBEBJVoiewOITn9fAAA8aqWUuRYAAKRaANpXDMAADyC297.png",
+		red:"//i3.Yongche.name/media/g2/M04/1A/19/rBEBP1oiewOIL28oAABRTPvt19sAAKRZwOT_5UAAFFk231.png"
+	},
+	{
+		blue:"//i3.Yongche.name/media/g2/M04/1A/1D/rBEBP1omFeaIVF1zAAClI_muiLsAAKSsAJTODIAAKU7890.png",
+		red:"//i1.Yongche.name/media/g2/M03/1A/1D/rBEBP1omFeaIXyEPAADcj6QdeXcAAKSsQCZZRgAANyn258.png"
+	},
+	{
+		blue:"//i2.Yongche.name/media/g2/M04/1A/19/rBEBP1oiemCIPAttAAA8cU12gvMAAKRZwLFTt0AADyJ825.png",
+		red:"//i3.Yongche.name/media/g2/M01/1A/19/rBEBJVoiemCIehtQAABQqpZw4PYAAKRaQIRElQAAFDC138.png"
+	},
+	{
+		blue:"//i2.Yongche.name/media/g2/M04/1A/1D/rBEBJVomFeaILXQmAAA89C3E1sUAAKSsAJS-yYAAD0M071.png",
+		red:"//i2.Yongche.name/media/g2/M03/1A/1D/rBEBJVomFeaIIUB6AADdrSjlhYoAAKSsQCYh1MAAN3F893.png"
+	},
+	{
+		blue:"//i3.Yongche.name/media/g2/M04/1A/1D/rBEBP1omFeaIYqegAAA8D_k4dT8AAKSsAJSvv8AADwn670.png",
+		red:"//i1.Yongche.name/media/g2/M03/1A/1D/rBEBP1omFeaIdh_9AADjzwJRr4sAAKSsQCXo2wAAOPn502.png"
+	}
+],
+
+
+
+
+
+
+						<div class="prize" :class="{'prize-bottom':index>=3}"  v-for="(prize,index) in prizeArr">
+							<img v-show="currentIdx!=(5-index)" :src="prize.blue" width="100%" height="100%"/>
+							<img v-show="currentIdx===(5-index)" :src="prize.red" width="100%" height="100%"/>
+						</div>
+						
+						
