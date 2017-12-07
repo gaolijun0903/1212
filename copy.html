@@ -21,7 +21,8 @@
 		
 		.head{ width: 10.0rem; height: 11.16rem; position: relative; }
 		.head .rule-btn{ position: absolute; top: 0.53333rem; right: 0.346667rem; width: 1.413333rem; height: 0.666667rem; line-height: 0.66667rem; text-align: center; background: #00b7ee; color: #1b015c; border-radius: 0.3333rem; }
-		.head .order-num{ position: absolute; top: 9.29rem; left: 7.85rem; font-size: 0.6rem; color: #c5ff47; text-shadow: #4d0086 2px 2px; }
+		.head .myprize-btn{ position: absolute; top: 0.53333rem; left: 0.346667rem;  color: #02c4fb;   font-size: 0.5rem; text-decoration: underline; }
+		.head .order-num{ position: absolute; top: 9.35rem; left: 7.6rem; color: #c5ff47; text-shadow: #4d0086 2px 2px; width: 0.8rem; text-align: center; font-size: 0.56rem;}
 		
 		.draw{width: 10.0rem;height: 14.4rem;position: relative;}
 		.draw .draw-des{ position: absolute; top: 3.4rem; left: 2.733333rem; width: 4.48rem; height: 0.866667rem; line-height: 0.866667rem; text-align: center; background: #ff6600; color: #fff600; border-radius: 0.24rem;}
@@ -32,7 +33,7 @@
 		.draw .prize-bottom{ position: absolute; top: 7.05rem; left: 0; }
 		.draw .draw-btn{ position: absolute; top: 11.35rem; }
 		
-		.lucky-list{ position: relative; padding-bottom: 1.5rem; }
+		.lucky-list{ position: relative; /*padding-bottom: 1.5rem; */}
 		.lucky-list .lucky-title{ width: 10.0rem; height: 3.72rem; }
 		.lucky-list .lucky-bg{ margin: -1.65rem auto 0; width: 8.946667rem; padding: 1.75rem 0.233333rem 0.233333rem 0.233333rem; height: 13.7rem; border: 0.04rem solid #02c4fb; }
 		.lucky-list .lucky-bg .lucky-body{ height: 11.55rem; overflow-y: scroll; }
@@ -42,6 +43,8 @@
 		.lucky-list .list-item .tel{ width:3.2rem; }
 		.lucky-list .list-item .prize{ width:2.25rem; color: #baeb4e;}
 		.lucky-list .lucky-bg .list-body-no{line-height: 8rem; color: #fff; text-align: center; font-size: 0.4rem;}
+		
+		.ps{ font-size: 0.2rem; line-height: 1.0rem; text-align: center; color: #02c4fb; padding:0 20px; }
 		
 		.mask-wrapper{ position: fixed; top: 0; left: 0;  width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 20; }
 		.mask-wrapper .mask-inner{ position: absolute; top: 3.0rem; height: 9.16rem;}
@@ -79,16 +82,18 @@
 			<div class="wrapper">
 				<div class="head">
 					<img src="//i3.Yongche.name/media/g2/M02/1A/19/rBEBJVoiewOIbI1JAAGxt04gNIMAAKRaANpmLUAAbHP086.png" width="100%" height="100%"/>
+					
+					<div class="myprize-btn" @click="showMyPrize">我的奖品</div> 
 					<div class="rule-btn" @click=showRule>规则</div>
 					<div class="order-num"  v-html="orderNums"></div>
 				</div>
 				<div class="draw">
 					<img src="//i2.yongche.name/media/g2/M01/1A/1D/rBEBP1omPa6IWbpuAAA4tTfTqx4AAKSzQJ1LcUAADjN344.png" width="100%" height="100%"/>
 					<div>
-						<div v-show="!orderRemain" class="draw-des">
+						<div v-if="!orderRemain" class="draw-des">
 							<div class="ok-draw">您当前有<span class="draw-num" v-html="drawNum">  </span>次抽奖机会</div>
 						</div>
-						<div v-show="orderRemain" class="draw-des order-remain">
+						<div v-else="orderRemain" class="draw-des order-remain">
 							<div class="no-draw">距离抽奖还差<span class="remain-num" v-html="orderRemain"></span>单</div>
 						</div>
 					</div>
@@ -121,6 +126,7 @@
 						</div>
 					</div>
 				</div>
+				<div class="ps">此名单仅展示部分中奖者</div>
 			</div>
 			
 			<transition name="bounce">
@@ -182,7 +188,8 @@ new Vue({
  	"//i2.Yongche.name/media/g2/M04/1A/1B/rBEBJVokuOCIHyinAAB7rmypK0YAAKSFAJaY3UAAHvG472.png",//丰田凯美瑞
  	"//i2.Yongche.name/media/g2/M01/1A/19/rBEBJVoiePSICfGCAABWXRbGPZYAAKRaQHRmmkAAFZ1472.png",//登录
  	"//i2.Yongche.name/media/g2/M04/1A/1D/rBEBJVomWnmIeRHPAABXL5ruHxsAAKS4wP-T-0AAFdH070.png",//未完成订单
- 	"//i1.yongche.name/media/g2/M02/1A/1E/rBEBP1onlluITBJRAADTrY7rx8YAAKTXAGf95gAANPF018.png" //规则
+ 	"//i1.yongche.name/media/g2/M02/1A/1E/rBEBP1onlluITBJRAADTrY7rx8YAAKTXAGf95gAANPF018.png",//规则
+ 	"//i3.yongche.name/media/g2/M01/1A/20/rBEBJVooxwqIKTDmAABNUrQFdVsAAKT0QGBHagAAE1q887.png" //尚未抽奖
  	],
  	prizeArr:[
 	{//丰田凯美瑞
@@ -212,7 +219,7 @@ new Vue({
   	isLogin:0,
   	isClick:0,
 	orderNums:0,
-	orderRemain:4,
+	orderRemain:0,
 	drawNum:0,
 	currentIdx:0,
 	luckyList:[],
@@ -410,9 +417,20 @@ new Vue({
 		this.maskType=7;
 		this.showMask=true;
 	},
+	showMyPrize:function(){
+		if(this.award_type==0){
+			this.maskType=8;
+			this.showMask=true;
+		}else{
+			this.maskType=this.award_type-1;
+			this.showMask=true;
+		}
+	},
 	closeMask:function(){
 		this.showMask=false;
-		this.initData();//刷新页面
+		if(this.maskType<5){
+			this.initData();//刷新页面
+		}
 	},
 	toastMsgFn:function(msg){
 		var vm = this;

@@ -6,25 +6,19 @@
 	    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no, initial-scale=1">
 		<meta name="screen-orientation" content="portrait"><!-- uc强制竖屏 -->
 		<meta name="x5-orientation" content="portrait"><!-- QQ强制竖屏 -->
-		<title>双十二抽奖活动</title>
-		<script type="text/javascript">
-	        var screenWidth=window.screen.width;
-	        document.getElementsByTagName('html')[0].style.fontSize=screenWidth/10+'px';
-	    </script>
+		<title>上拉加载</title>
+		
 		<style type="text/css">
 		 * { padding:0; margin:0;-webkit-tap-highlight-color: rgba(0,0,0,0); box-sizing: border-box;}
 		HTML ,body { font-size:12px;height:100%;width:100%; font-family: "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;}
 		li { list-style-type:none;}
-		input, input[type="button"], input[type="submit"], input[type="reset"] {-webkit-appearance: none; color:slateblue; border:none; outline: none; background:transparent; width: 100%;}
 		body{background-color: #1a0059;}
 		.wrapper{ width: 10.0rem;min-height: 100%; background-image: url(img/bgrow.png);}
-		
-		
 		
 		.lucky-list{ position: relative; /*padding-bottom: 1.5rem;*/ }
 		.lucky-list .lucky-title{ width: 10.0rem; height: 3.72rem; }
 		.lucky-list .lucky-bg{ margin: -1.65rem auto 0; width: 8.946667rem; padding: 1.75rem 0.233333rem 0.233333rem 0.233333rem; height: 13.7rem; border: 0.04rem solid #02c4fb; }
-		.lucky-list .lucky-bg .lucky-body{ height: 11.55rem; overflow: hidden; }
+		.lucky-list .lucky-bg .lucky-body{ height: 11.55rem; overflow: hidden; /*importent*/}
 		.lucky-list .list-item{ height: 1.226667rem; margin-bottom: 0.206667rem; background: #152577; color: #02c4fb; }
 		.lucky-list .list-item .cell{ display: inline-block; line-height: 1.226667rem; text-align: center; font-size: 0.373333rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 		.lucky-list .list-item .name{ width:2.16rem; }
@@ -32,7 +26,7 @@
 		.lucky-list .list-item .prize{ width:2.25rem; color: #baeb4e;}
 		.lucky-list .lucky-bg .list-body-no{line-height: 8rem; color: #fff; text-align: center; font-size: 0.4rem;}
 		
-		.list-bottom-tip{color:#fff;}
+		.loading-hook{/*position:absolute ;bottom:-50px;width:100%;*/color:#fff;text-align: center;}
 		</style>
 	</head>
 	<body>
@@ -53,9 +47,7 @@
 										<div class="cell prize" v-html="toPrize(item.award_type)"></div>
 									</div>
 								</div>
-								<div class="list-bottom-tip">
-							        <span class="loading-hook" v-html="bottomTip"></span>
-							    </div>
+								<div class="loading-hook" v-html="bottomTip"></div>
 								<div class="list-body-no" v-show="luckyList.length===0">中奖名单将会在这里展现</div>
 								
 							</div>
@@ -73,29 +65,12 @@
 		<script type="text/javascript" src="js/flexible.js"></script>	
 		<script type="text/javascript" src="js/bscroll.min.js"></script>	
 <script type="text/javascript">
-function stopBubble(odiv) {
-    if(odiv){
-        odiv.addEventListener("touchstart",function(ev){
-            ev.cancelBubble = true;
-        })
-        odiv.addEventListener("touchmove",function(ev){
-            ev.cancelBubble = true;
-            //ev.preventDefault();
-            return false;
-        })
-        odiv.addEventListener("touchend",function(ev){
-            ev.cancelBubble = true;
-        })
-    }
-}     
 
 new Vue({
   el: '#app',
   data:{
+  	isBottom:false,
   	bottomTip:"查看更多",
-    http:"//yaoyakun-market.Yongche.org",
-    //http:"//market.Yongche.com",
-  
 	luckyList:[ // 获奖司机列表
             {
                 "name": "test",
@@ -132,7 +107,7 @@ new Vue({
                 "cellphone": 13312345678,
                 "award_type":3
             },
-             {
+            {
                 "name": "测试测试测试测试测试2",
                 "cellphone": 13312345678,
                 "award_type":1
@@ -171,74 +146,174 @@ new Vue({
                 "name": "测试2",
                 "cellphone": 13312345678,
                 "award_type":5
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+             {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+            {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+             {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+            {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+             {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+            {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+             {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":3
+            },
+            {
+                "name": "测试测试测试测试测试2",
+                "cellphone": 13312345678,
+                "award_type":1
+            },
+            {
+                "name": "测试2",
+                "cellphone": 13312345678,
+                "award_type":2
             }
         ]
 	
   },
-  computed:{
-  	
-  },
+  
   mounted: function(){
   	this.initScroll();
-//	this.initData();
 
   },
   methods:{
-  	initData:function (){// 获取随叫随到订单数
-  		var vm = this;
-  		$.ajax({
-             type: "GET",
-             url: vm.http+"/miscellaneous/Driverdoubletwelve/getInitPage?driver_id="+vm.driver_id,
-             dataType:'jsonp',
-             crossDomain:true, // ios系统必须这样用，否则https无法正确通信
-             jsonp:'callback',
-             success: function(data){
-             	if(data.code==200){
-	         		console.log(data)
-	         		vm.isLogin = data.result.isLogin;
-	          		if(vm.isLogin==0){
-	          			vm.maskType=5;
-//	           			vm.showMask=true;
-	          		}
-	         		vm.orderNums = data.result.count;//已完成订单数
-	         		vm.orderRemain = data.result.count_remain;//还有几单未完成
-	         		vm.drawNum = data.result.available_times;//几次抽奖机会
-	         		vm.award_type = data.result.award_type;//中奖类型
-	         		vm.isClick = data.result.isClick;//是否可以抽奖
-	         		vm.luckyList = data.result.driverList;//中奖名单
-	            }else{
-	            	vm.toastMsgFn(data.code);
-	            }
-              },
-              error:function(e){
-                //alert(JSON.stringify(e));
-                alert("网路异常");
-              }
-        });
-	},
 	initScroll:function () {
 		var vm = this;
 		var listWrapper = this.$refs.listWrapper;
-		var scroll = new window.BScroll(listWrapper, {
+		vm.scroll = new BScroll(listWrapper, {
 			probeType: 1
 		});
-		scroll.on('scroll', function (position) {
-			console.log("position.y-----"+position.y);
-		    
-		});
-		scroll.on('touchend', function (position) {
-			console.log("position.y-----"+position.y);
-			console.log("this.maxScrollY - 30"+this.maxScrollY - 30);
-			
+		
+		vm.scroll.on('touchEnd', function (position) {
+			console.log("touchEnd")
 		    if(position.y < (this.maxScrollY - 30)) {
-		      vm.bottomTip = '加载中...';
+		      vm.bottomTip.innerText = '加载中...';
 		      setTimeout(function () {
 		        // 恢复文本值 
-		        vm.bottomTip = '查看更多';
+		        vm.bottomTip.innerText = '查看更多';
 		        // 向列表添加数据
 		        vm.reloadData();
 		        // 加载更多后,重新计算滚动区域高度
-		        scroll.refresh();
+		        vm.scroll.refresh();
 		      }, 1000);
 		    }
 		});
@@ -260,10 +335,34 @@ new Vue({
                 "name": "newnew",
                 "cellphone": 18810605345,
                 "award_type":0
+            },{
+                "name": "newnew",
+                "cellphone": 18810605345,
+                "award_type":0
+            },{
+                "name": "newnew",
+                "cellphone": 18810605345,
+                "award_type":0
+            },{
+                "name": "newnew",
+                "cellphone": 18810605345,
+                "award_type":0
+            },{
+                "name": "newnew",
+                "cellphone": 18810605345,
+                "award_type":0
+            },{
+                "name": "newnew",
+                "cellphone": 18810605345,
+                "award_type":0
+            },{
+                "name": "newnew",
+                "cellphone": 18810605345,
+                "award_type":0
             }]
 	  // 向ul容器中添加内容
-	  this.luckyList.concat(newItemArr);
-	  console.log(this.luckyList)
+	  this.luckyList = this.luckyList.concat(newItemArr);
+	  console.log(this.luckyList.length)
 	},
 	
 	toPrize:function(num){
