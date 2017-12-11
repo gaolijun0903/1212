@@ -32,6 +32,24 @@ http://yaoyakun.market.yongche.org/miscellaneous/Driverdoubletwelve/getInitPage?
     }
 }
 
+http://yaoyakun.market.yongche.org/miscellaneous/Driverdoubletwelve/getCurrentPage?page=1&pageCount=20
+{
+    "code": 200,
+    "msg": "OK",
+    "result": {
+        "driverList": [
+            {
+                "name": "y*****t",
+                "cellphone": "330****",
+                "award_type": 5
+            },
+              {
+                "name": "y*****t",
+                "cellphone": "221****",
+                "award_type": 4
+            }]
+    }
+}
 
 // 抽奖
 http://yaoyakun.market.yongche.org/miscellaneous/Driverdoubletwelve/getResult?driver_id=50056790
